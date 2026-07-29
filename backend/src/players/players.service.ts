@@ -22,7 +22,7 @@ export class PlayersService {
     });
   }
 
-  findFemale() {
+  findAllFemale() {
     return this.femalePlayersRepository.find({
       take: 20,
     });
