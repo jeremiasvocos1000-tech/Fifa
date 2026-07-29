@@ -3,11 +3,19 @@ import { PlayersService } from './players.service';
 
 @Controller('players')
 export class PlayersController {
-  constructor(private readonly playersService: PlayersService) {}
+
+  constructor(
+    private readonly playersService: PlayersService,
+  ) {}
 
   @Get()
   findAll() {
     return this.playersService.findAll();
+  }
+
+  @Get('female')
+  findFemale() {
+    return this.playersService.findFemale();
   }
 
   @Get(':id')
