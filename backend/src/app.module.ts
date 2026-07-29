@@ -12,6 +12,7 @@ import { PlayersModule } from './players/players.module';
       username: 'root',
       password: 'root',
       database: 'fifa_db',
+      charset: 'utf8mb4',
       autoLoadEntities: true,
       synchronize: false,
     }),
