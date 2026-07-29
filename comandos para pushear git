@@ -1,0 +1,24 @@
+🟢 1. Agregar los archivos
+git add .
+
+👉 Esto agrega todo (frontend, backend, etc.)
+
+Si quisieras agregar solo uno:
+
+git add frontend/
+🟡 2. Crear el commit
+git commit -m "primer commit frontend con react"
+
+👉 El mensaje puede ser lo que quieras, pero que tenga sentido.
+
+🔵 3. Conectar con GitHub (si todavía no lo hiciste)
+
+Si ya creaste el repo en GitHub, copiá la URL y hacé:
+
+git remote add origin https://github.com/tu-usuario/nombre-repo.git
+🔴 4. Subir (push)
+git push -u origin master
+
+👉 Si usás main en vez de master:
+
+git push -u origin main
