@@ -1,3 +1,5 @@
+import "./CSS/login.css";
+
 function Login() {
   return (
     <h1>Login funcionando</h1>
