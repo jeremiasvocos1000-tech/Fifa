@@ -1,6 +1,7 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
+import { PlayersModule } from './players/players.module';
 
 @Module({
   imports: [
@@ -10,10 +11,11 @@ import { AppController } from './app.controller';
       port: 3306,
       username: 'root',
       password: 'root',
-      database: 'fifa',
+      database: 'fifa_db',
       autoLoadEntities: true,
-      synchronize: true,
+      synchronize: false,
     }),
+    PlayersModule,
   ],
   controllers: [AppController],
 })

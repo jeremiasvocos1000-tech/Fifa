@@ -2,3 +2,5 @@ node_modules/
 dist/
 .env
 *.log
+# FIFA SQL datasets
+*.sql
