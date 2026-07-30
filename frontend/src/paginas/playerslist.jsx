@@ -1,4 +1,4 @@
-import "./CSS/playerslist.css";
+import "./CSS/playerlist.css";
 import { useEffect, useState } from "react";
 import api from "../service/api";
 

@@ -7,7 +7,7 @@ import CrearJugador from "./paginas/crearjugador";
 function App() {
   return (
     <>
-      <h1>STATS FIFA </h1>
+      <h1>STATS FIFA</h1>
       <Login />
       <hr />
       <PlayersList />
