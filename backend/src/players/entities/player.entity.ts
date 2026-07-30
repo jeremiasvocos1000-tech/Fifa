@@ -6,6 +6,9 @@ export class Player {
   @PrimaryGeneratedColumn()
   id!: number;
 
+  @Column({ nullable: true })
+  player_face_url!: string;
+
   @Column()
   long_name!: string;
 
