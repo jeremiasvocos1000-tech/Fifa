@@ -9,10 +9,13 @@ function PlayersList() {
     async function cargarJugadores() {
       try {
         const response = await api.get("/players");
-        console.log(response.data);
+
+        console.log("Jugadores recibidos:", response.data);
+
         setPlayers(response.data);
+
       } catch (error) {
-        console.error(error);
+        console.error("Error cargando jugadores:", error);
       }
     }
 
@@ -25,17 +28,28 @@ function PlayersList() {
 
       {players.map((player) => (
         <div key={player.id} style={{ marginBottom: "20px" }}>
-          <img
-            src={player.player_face_url}
-            alt={player.long_name}
-            width="100"
-            height="100"
-          />
+
+<img
+  src={`http://localhost:3000/players-image?url=${encodeURIComponent(player.player_face_url)}`}
+  alt={player.long_name}
+  width="100"
+  height="100"
+/>
           <p>
             {player.long_name} - {player.overall}
           </p>
+
+          <p>
+            Club: {player.club_name}
+          </p>
+
+          <p>
+            Posición: {player.player_positions}
+          </p>
+
         </div>
       ))}
+
     </div>
   );
 }
