@@ -12,11 +12,13 @@ function Login() {
   const trueUser = "Admin";
   const truePassword = "1234";
 
-  const enviar = (e) => {
+ const enviar = (e) => {
     e.preventDefault();
 
     if (user === trueUser && password === truePassword) {
       setLogResult(true);
+      localStorage.setItem("logueado", "true"); 
+      window.dispatchEvent(new Event("storage"));
 
       setTimeout(() => {
         navigate("/");
