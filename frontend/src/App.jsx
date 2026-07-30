@@ -8,7 +8,7 @@ import PlayersList from "./paginas/playerslist";
 
 function App() {
   return (
-    <div> <h1>six seven</h1> 
+    <div> <h1>six sevebggn</h1> 
    
     <BrowserRouter>
 
