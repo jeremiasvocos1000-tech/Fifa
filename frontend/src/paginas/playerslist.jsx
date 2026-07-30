@@ -24,9 +24,17 @@ function PlayersList() {
       <h2>Lista de jugadores</h2>
 
       {players.map((player) => (
-        <p key={player.id}>
-          {player.long_name} - {player.overall} {player.player_face_url}
-        </p>
+        <div key={player.id} style={{ marginBottom: "20px" }}>
+          <img
+            src={player.player_face_url}
+            alt={player.long_name}
+            width="100"
+            height="100"
+          />
+          <p>
+            {player.long_name} - {player.overall}
+          </p>
+        </div>
       ))}
     </div>
   );
