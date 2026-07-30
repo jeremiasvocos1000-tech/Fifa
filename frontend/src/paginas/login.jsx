@@ -1,6 +1,10 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function Login() {
+
+  const navigate = useNavigate();
+
   const [user, setUser] = useState("");
   const [password, setPassword] = useState("");
   const [logResult, setLogResult] = useState(null);
@@ -13,6 +17,11 @@ function Login() {
 
     if (user === trueUser && password === truePassword) {
       setLogResult(true);
+
+      setTimeout(() => {
+        navigate("/");
+      }, 1000);
+
     } else {
       setLogResult(false);
     }
@@ -35,7 +44,7 @@ function Login() {
           onChange={(e) => setPassword(e.target.value)}
         />
 
-        <button type="submit">Enviar</button>
+        <button type="submit">Entrar</button>
       </form>
 
       {logResult === true && <p>Inicio de sesión correcto</p>}
