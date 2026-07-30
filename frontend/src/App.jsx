@@ -8,6 +8,8 @@ import PlayersList from "./paginas/playerslist";
 
 function App() {
   return (
+    
+   
     <BrowserRouter>
 
       <Navbar />
@@ -19,6 +21,7 @@ function App() {
       </Routes>
 
     </BrowserRouter>
+    
   );
 }
 
