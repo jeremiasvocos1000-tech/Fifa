@@ -1,4 +1,4 @@
-import "./CSS/playerlist.css";
+import "./CSS/playerslist.css";
 import { useEffect, useState } from "react";
 import api from "../service/api";
 
@@ -25,7 +25,7 @@ function PlayersList() {
 
       {players.map((player) => (
         <p key={player.id}>
-          {player.long_name} - {player.overall}
+          {player.long_name} - {player.overall} {player.player_face_url}
         </p>
       ))}
     </div>
