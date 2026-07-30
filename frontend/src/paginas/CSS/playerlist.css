@@ -1,0 +1,61 @@
+.player-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.5rem;
+  padding: 1.5rem;
+}
+
+.player-card {
+  background: #1e1e2f;
+  color: #fff;
+  border-radius: 12px;
+  padding: 1rem;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+}
+
+.player-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+}
+
+.player-card img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 0.75rem;
+  border: 3px solid #ffd700;
+}
+
+.player-card h3 {
+  margin: 0.25rem 0;
+  font-size: 1.1rem;
+}
+
+.player-card p {
+  margin: 0.2rem 0;
+  font-size: 0.9rem;
+  color: #ccc;
+}
+
+.player-rating {
+  display: inline-block;
+  background: #ffd700;
+  color: #1e1e2f;
+  font-weight: bold;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  line-height: 32px;
+  margin-top: 0.5rem;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 3rem;
+  color: #888;
+  font-style: italic;
+}
