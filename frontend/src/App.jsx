@@ -1,23 +1,24 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+import Navbar from "./componentes/Navbar";
+
 import Login from "./paginas/login";
-import InfoJugador from "./paginas/infojugador";
-import EditarJugador from "./paginas/editarjugador";
-import PlayersList from "./paginas/playerslist";
 import CrearJugador from "./paginas/crearjugador";
+import PlayersList from "./paginas/playerslist";
 
 function App() {
   return (
-    <>
-      <h1>STATS FIFA </h1>
-      <Login />
-      <hr />
-      <PlayersList />
-      <hr />
-      <CrearJugador />
-      <hr />
-      <EditarJugador />
-      <hr />
-      <InfoJugador />
-    </>
+    <BrowserRouter>
+
+      <Navbar />
+
+      <Routes>
+        <Route path="/login" element={<Login />} />
+        <Route path="/crear" element={<CrearJugador />} />
+        <Route path="/" element={<PlayersList />} />
+      </Routes>
+
+    </BrowserRouter>
   );
 }
 
