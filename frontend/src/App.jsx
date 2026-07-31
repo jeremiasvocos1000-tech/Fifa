@@ -1,27 +1,26 @@
 import { Routes, Route } from "react-router-dom";
 
-import Navbar from "./componentes/Navbar";
-
+import Home from "./paginas/Home";
 import Login from "./paginas/login";
 import CrearJugador from "./paginas/crearjugador";
-import PlayersList from "./paginas/playerslist";
-import Home from "./paginas/home";
+import EditarJugador from "./paginas/editarjugador";
+import InfoJugador from "./paginas/infojugador";
 
 function App() {
   return (
-    <>
-      <Navbar />
+    <Routes>
 
-      <Routes>
-        <Route path="/" element={<Home />} />
+      <Route path="/" element={<Home />} />
 
-        <Route path="/login" element={<Login />} />
+      <Route path="/login" element={<Login />} />
 
-        <Route path="/crear" element={<CrearJugador />} />
+      <Route path="/crear" element={<CrearJugador />} />
 
-        <Route path="/players" element={<PlayersList />} />
-      </Routes>
-    </>
+      <Route path="/editar/:id" element={<EditarJugador />} />
+
+      <Route path="/player/:id" element={<InfoJugador />} />
+
+    </Routes>
   );
 }
 

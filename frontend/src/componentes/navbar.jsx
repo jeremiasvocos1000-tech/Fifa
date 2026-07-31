@@ -29,29 +29,35 @@ function Navbar() {
 
   return (
     <nav className="navbar">
-
-      <Link to="/" className="logo">
-        ⚽ FIFA
-      </Link>
-
-      <div className="links">
-
-        <Link to="/crear">
-          Crear Jugador
+        
+        <Link to="/" className="logo">
+            STATS FIFA
         </Link>
-
-        {logueado ? (
-          <button onClick={cerrarSesion}>
-            Cerrar sesión
-          </button>
-        ) : (
-          <Link to="/login">
-            Login
-          </Link>
-        )}
-
-      </div>
-
+      
+        <div className="links">
+      
+            <Link to="/">
+                Inicio
+            </Link>
+      
+            {logueado && (
+                <Link to="/crear">
+                    Crear jugador
+                </Link>
+            )}
+    
+            {logueado ? (
+                <button onClick={cerrarSesion}>
+                    Cerrar sesión
+                </button>
+            ) : (
+                <Link to="/login">
+                    Login
+                </Link>
+            )}
+    
+        </div>
+          
     </nav>
   );
 }

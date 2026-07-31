@@ -1,57 +1,48 @@
-import "./CSS/playerslist.css";
+import "./CSS/playerlist.css";
 import { useEffect, useState } from "react";
 import api from "../service/api";
+import PlayerCard from "../components/PlayerCard/PlayerCard";
 
 function PlayersList() {
-  const [players, setPlayers] = useState([]);
 
-  useEffect(() => {
-    async function cargarJugadores() {
-      try {
-        const response = await api.get("/players");
+  const [players,setPlayers]=useState([]);
 
-        console.log("Jugadores recibidos:", response.data);
+  useEffect(()=>{
 
+    async function cargarJugadores(){
+
+      try{
+
+        const response=await api.get("/players");
         setPlayers(response.data);
 
-      } catch (error) {
-        console.error("Error cargando jugadores:", error);
+      }catch(err){
+
+        console.error(err);
+
       }
+
     }
 
     cargarJugadores();
-  }, []);
 
-  return (
-    <div>
-      <h2>Lista de jugadores</h2>
+  },[]);
 
-      {players.map((player) => (
-        <div key={player.id} style={{ marginBottom: "20px" }}>
+  return(
 
-<img
-  src={`http://localhost:3000/players-image?url=${encodeURIComponent(player.player_face_url)}`}
-  alt={player.long_name}
-  width="100"
-  height="100"
-/>
-          <p>
-            {player.long_name} - {player.overall}
-          </p>
+    <div className="players-grid">
 
-          <p>
-            Club: {player.club_name}
-          </p>
-
-          <p>
-            Posición: {player.player_positions}
-          </p>
-
-        </div>
+      {players.map(player=>(
+        <PlayerCard
+            key={player.id}
+            player={player}
+        />
       ))}
 
     </div>
+
   );
+
 }
 
 export default PlayersList;
