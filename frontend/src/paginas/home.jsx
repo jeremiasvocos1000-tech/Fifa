@@ -3,17 +3,10 @@ import PlayersList from "./playerslist";
 
 function Home() {
   return (
-    <>
-      <Navbar />
-
-      <main className="home">
-
-        <h1>STATS FIFA</h1>
-
-        <PlayersList />
-
-      </main>
-    </>
+    <main className="home">
+      <h1>STATS FIFA</h1>
+      <PlayersList />
+    </main>
   );
 }
 
