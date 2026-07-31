@@ -14,50 +14,58 @@ function Navbar() {
       setLogueado(localStorage.getItem("logueado") === "true");
     };
 
-    window.addEventListener("storage", chequearLogin);
+    window.addEventListener("authChange", chequearLogin);
 
     return () => {
-      window.removeEventListener("storage", chequearLogin);
+      window.removeEventListener("authChange", chequearLogin);
     };
   }, []);
 
   const cerrarSesion = () => {
     localStorage.removeItem("logueado");
+    localStorage.removeItem("token");
+
     setLogueado(false);
-    navigate("/login");
+
+    window.dispatchEvent(new Event("authChange"));
+
+    navigate("/");
   };
 
   return (
     <nav className="navbar">
-        
-        <Link to="/" className="logo">
-            STATS FIFA
+
+      <Link to="/" className="logo">
+        STATS FIFA
+      </Link>
+
+      <div className="links">
+
+        <Link to="/">
+          Inicio
         </Link>
-      
-        <div className="links">
-      
-            <Link to="/">
-                Inicio
-            </Link>
-      
-            {logueado && (
-                <Link to="/crear">
-                    Crear jugador
-                </Link>
-            )}
-    
-            {logueado ? (
-              <button className="logout-btn" onClick={cerrarSesion}>
-                Cerrar sesión
-              </button>
-            ) : (
-                <Link to="/login">
-                    Login
-                </Link>
-            )}
-    
-        </div>
-          
+
+        {logueado && (
+          <Link to="/crear">
+            Crear jugador
+          </Link>
+        )}
+
+        {logueado ? (
+          <button 
+            className="logout-btn" 
+            onClick={cerrarSesion}
+          >
+            Cerrar sesión
+          </button>
+        ) : (
+          <Link to="/login">
+            Login
+          </Link>
+        )}
+
+      </div>
+
     </nav>
   );
 }

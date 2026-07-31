@@ -14,15 +14,23 @@ function Login() {
     e.preventDefault();
 
     try {
+
       const response = await api.post("/auth/login", {
         username: user,
         password: password,
       });
 
-      localStorage.setItem("token", response.data.access_token);
-      localStorage.setItem("logueado", "true");
+      localStorage.setItem(
+        "token",
+        response.data.access_token
+      );
 
-      window.dispatchEvent(new Event("storage"));
+      localStorage.setItem(
+        "logueado",
+        "true"
+      );
+
+      window.dispatchEvent(new Event("authChange"));
 
       setLogResult(true);
 
@@ -31,43 +39,54 @@ function Login() {
       }, 1000);
 
     } catch (error) {
+
       console.error(error);
       setLogResult(false);
+
     }
   };
+
 
   return (
     <div className="login-container">
 
-      <form className="login-form" onSubmit={enviar}>
+      <form 
+        className="login-form" 
+        onSubmit={enviar}
+      >
 
-        <h2 style={{ color: "white", textAlign: "center" }}>
+        <h2 style={{ color:"white", textAlign:"center" }}>
           Login
         </h2>
+
 
         <input
           type="text"
           placeholder="Usuario"
           value={user}
-          onChange={(e) => setUser(e.target.value)}
+          onChange={(e)=>setUser(e.target.value)}
         />
+
 
         <input
           type="password"
           placeholder="Contraseña"
           value={password}
-          onChange={(e) => setPassword(e.target.value)}
+          onChange={(e)=>setPassword(e.target.value)}
         />
+
 
         <button type="submit">
           Entrar
         </button>
+
 
         {logResult === true && (
           <p className="login-success">
             Inicio de sesión correcto
           </p>
         )}
+
 
         {logResult === false && (
           <p className="login-error">

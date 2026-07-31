@@ -3,8 +3,17 @@ import "./PlayerCard.css";
 
 function PlayerCard({ player }) {
   return (
-    <Link to={`/player/${player.id}`} className="player-card-link">
+    <Link 
+      to={`/player/${player.id}`} 
+      className="player-card-link"
+    >
+
       <div className="player-card">
+
+        <div className="overall">
+          {player.overall}
+        </div>
+
 
         <img
           src={`http://localhost:3000/players-image?url=${encodeURIComponent(
@@ -13,15 +22,31 @@ function PlayerCard({ player }) {
           alt={player.long_name}
         />
 
-        <h3>{player.long_name}</h3>
 
-        <p><strong>Overall:</strong> {player.overall}</p>
+        <h2>
+          {player.long_name}
+        </h2>
 
-        <p>{player.club_name}</p>
 
-        <p>{player.player_positions}</p>
+        <div className="player-info">
+
+          <p>
+            <strong>Club:</strong> {player.club_name}
+          </p>
+
+          <p>
+            <strong>Posición:</strong> {player.player_positions}
+          </p>
+
+          <p>
+            <strong>Nacionalidad:</strong> {player.nationality_name || "N/A"}
+          </p>
+
+        </div>
+
 
       </div>
+
     </Link>
   );
 }
