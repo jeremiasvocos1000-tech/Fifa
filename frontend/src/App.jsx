@@ -14,17 +14,11 @@ function App() {
       <Navbar />
 
       <Routes>
-
         <Route path="/" element={<Home />} />
-
         <Route path="/login" element={<Login />} />
-
         <Route path="/crear" element={<CrearJugador />} />
-
         <Route path="/editar/:id" element={<EditarJugador />} />
-
         <Route path="/player/:id" element={<InfoJugador />} />
-
       </Routes>
     </>
   );

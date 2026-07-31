@@ -6,9 +6,15 @@
 
 .players-container h2 {
   text-align: center;
+<<<<<<< HEAD
+  box-shadow: 0 4px 10px rgba(102, 15, 15, 0.3);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+=======
   color: white;
   font-size: 35px;
   margin-bottom: 30px;
+>>>>>>> 4efe18b631aa922384683224d6da1e6f9ed7fe51
 }
 
 
