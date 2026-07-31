@@ -4,7 +4,10 @@ import "./Navbar.css";
 
 function Navbar() {
   const navigate = useNavigate();
-  const [logueado, setLogueado] = useState(localStorage.getItem("logueado") === "true");
+
+  const [logueado, setLogueado] = useState(
+    localStorage.getItem("logueado") === "true"
+  );
 
   useEffect(() => {
     const chequearLogin = () => {
@@ -12,7 +15,10 @@ function Navbar() {
     };
 
     window.addEventListener("storage", chequearLogin);
-    return () => window.removeEventListener("storage", chequearLogin);
+
+    return () => {
+      window.removeEventListener("storage", chequearLogin);
+    };
   }, []);
 
   const cerrarSesion = () => {
@@ -23,17 +29,35 @@ function Navbar() {
 
   return (
     <nav className="navbar">
-      <h2>⚽ FIFA</h2>
-
-      <div className="links">
-        <Link to="/crear">Crear Jugador</Link>
-
-        {logueado ? (
-          <button onClick={cerrarSesion}>Cerrar sesión</button>
-        ) : (
-          <Link to="/login">Login</Link>
-        )}
-      </div>
+        
+        <Link to="/" className="logo">
+            STATS FIFA
+        </Link>
+      
+        <div className="links">
+      
+            <Link to="/">
+                Inicio
+            </Link>
+      
+            {logueado && (
+                <Link to="/crear">
+                    Crear jugador
+                </Link>
+            )}
+    
+            {logueado ? (
+                <button onClick={cerrarSesion}>
+                    Cerrar sesión
+                </button>
+            ) : (
+                <Link to="/login">
+                    Login
+                </Link>
+            )}
+    
+        </div>
+          
     </nav>
   );
 }

@@ -16,4 +16,9 @@
 
 .links a:hover {
   color: #00ff88;
+
+.logo {
+  text-decoration: none;
+  color: inherit;
+}
 }

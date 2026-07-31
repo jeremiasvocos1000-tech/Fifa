@@ -1,76 +1,61 @@
-body {
-  margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  background: linear-gradient(135deg, #111827, #1f2937);
-  color: white;
-}
-
-h2 {
-  text-align: center;
-  margin: 30px 0;
-  font-size: 2rem;
-  color: #ffd700;
-}
-
-.player-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 25px;
+.players-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0b1220, #1e3a8a);
   padding: 30px;
 }
 
+.players-container h2 {
+  text-align: center;
+  color: white;
+  font-size: 35px;
+  margin-bottom: 30px;
+}
+
+
+/* donde van todas las cartas */
+.players-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 30px;
+}
+
+
+/* carta FIFA */
 .player-card {
-  background: rgba(30, 30, 47, 0.95);
-  border-radius: 18px;
+  background: linear-gradient(145deg, #ffe98a, #c99725);
+  border-radius: 25px;
   padding: 20px;
   text-align: center;
-  transition: 0.3s;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
-  border: 1px solid rgba(255, 215, 0, 0.2);
+  height: 330px;
+  box-shadow: 0 15px 30px rgba(0,0,0,.5);
+  transition: .3s;
+  border: 4px solid #fff;
 }
+
 
 .player-card:hover {
-  transform: translateY(-8px) scale(1.03);
-  box-shadow: 0 15px 30px rgba(255, 215, 0, 0.3);
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(255,215,0,.5);
 }
 
+
+/* foto */
 .player-card img {
-  width: 120px;
-  height: 120px;
+  width: 150px;
+  height: 150px;
   border-radius: 50%;
   object-fit: cover;
-  border: 4px solid #ffd700;
-  margin-bottom: 15px;
+  border: 5px solid white;
 }
 
-.player-card h3 {
-  margin: 10px 0 5px;
-  font-size: 1.3rem;
-  color: #ffffff;
-}
 
+/* nombre + overall */
 .player-card p {
-  margin: 6px 0;
-  color: #d1d5db;
-  font-size: 0.95rem;
-}
-
-.player-rating {
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 15px;
-  width: 45px;
-  height: 45px;
-  border-radius: 50%;
-  background: #ffd700;
-  color: #111827;
-  font-weight: bold;
+  margin-top: 25px;
+  background: rgba(255,255,255,.7);
+  padding: 12px;
+  border-radius: 15px;
+  color: #111;
   font-size: 18px;
-}
-
-.empty-state {
-  text-align: center;
-  margin-top: 50px;
-  color: #9ca3af;
+  font-weight: bold;
 }
