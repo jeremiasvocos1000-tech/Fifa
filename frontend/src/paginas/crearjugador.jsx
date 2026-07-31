@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import api from "../service/api";
 import "./CSS/crearjugador.css";
 
 function CrearJugador() {
@@ -19,23 +20,22 @@ function CrearJugador() {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const jugadoresGuardados =
-      JSON.parse(localStorage.getItem("jugadores")) || [];
+    try {
+      await api.post("/players", {
+        long_name: jugador.nombre,
+        club_name: jugador.equipo,
+        overall: Number(jugador.media),
+        player_positions: jugador.posicion,
+        player_face_url: "https://via.placeholder.com/150",
+      });
 
-    const nuevoJugador = {
-      ...jugador,
-      id: Date.now(),
-    };
-
-    localStorage.setItem(
-      "jugadores",
-      JSON.stringify([...jugadoresGuardados, nuevoJugador])
-    );
-
-    navigate("/");
+      navigate("/");
+    } catch (error) {
+      console.error("Error creando jugador:", error);
+    }
   };
 
   return (
