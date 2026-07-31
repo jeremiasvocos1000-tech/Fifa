@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { PlayersModule } from './players/players.module';
+import { AuthModule } from './players/aurh/auth.module';
 
 @Module({
   imports: [
@@ -17,6 +18,7 @@ import { PlayersModule } from './players/players.module';
       synchronize: false,
     }),
     PlayersModule,
+    AuthModule,
   ],
   controllers: [AppController],
 })
