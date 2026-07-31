@@ -47,9 +47,9 @@ function Navbar() {
             )}
     
             {logueado ? (
-                <button onClick={cerrarSesion}>
-                    Cerrar sesión
-                </button>
+              <button className="logout-btn" onClick={cerrarSesion}>
+                Cerrar sesión
+              </button>
             ) : (
                 <Link to="/login">
                     Login

@@ -1,68 +1,67 @@
-.player-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 1.5rem;
-  padding: 1.5rem;
+.players-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0b1220, #1e3a8a);
+  padding: 30px;
 }
 
-.player-card {
-  background: #1e1e2f;
-  color: #fff;
-  border-radius: 12px;
-  padding: 1rem;
+.players-container h2 {
   text-align: center;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+<<<<<<< HEAD
+  box-shadow: 0 4px 10px rgba(102, 15, 15, 0.3);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   cursor: pointer;
+=======
+  color: white;
+  font-size: 35px;
+  margin-bottom: 30px;
+>>>>>>> 4efe18b631aa922384683224d6da1e6f9ed7fe51
 }
+
+
+/* donde van todas las cartas */
+.players-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 30px;
+}
+
+
+/* carta FIFA */
+.player-card {
+  background: linear-gradient(145deg, #ffe98a, #c99725);
+  border-radius: 25px;
+  padding: 20px;
+  text-align: center;
+  height: 330px;
+  box-shadow: 0 15px 30px rgba(0,0,0,.5);
+  transition: .3s;
+  border: 4px solid #fff;
+}
+
 
 .player-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(255,215,0,.5);
 }
 
+
+/* foto */
 .player-card img {
-  width: 100px;
-  height: 100px;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
   object-fit: cover;
-  border-radius: 50%;
-  margin-bottom: 0.75rem;
-  border: 3px solid #ffd700;
+  border: 5px solid white;
 }
 
-.player-card h3 {
-  margin: 0.25rem 0;
-  font-size: 1.1rem;
-}
 
+/* nombre + overall */
 .player-card p {
-  margin: 0.2rem 0;
-  font-size: 0.9rem;
-  color: #ccc;
-}
-
-.player-rating {
-  display: inline-block;
-  background: #ffd700;
-  color: #1e1e2f;
+  margin-top: 25px;
+  background: rgba(255,255,255,.7);
+  padding: 12px;
+  border-radius: 15px;
+  color: #111;
+  font-size: 18px;
   font-weight: bold;
-  border-radius: 50%;
-  width: 32px;
-  height: 32px;
-  line-height: 32px;
-  margin-top: 0.5rem;
-}
-
-.empty-state {
-  text-align: center;
-  padding: 3rem;
-  color: #888;
-  font-style: italic;
-}
-
-.players-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fill,minmax(230px,1fr));
-    gap:20px;
-    padding:20px;
 }
