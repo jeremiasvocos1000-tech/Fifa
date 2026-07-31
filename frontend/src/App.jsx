@@ -1,27 +1,26 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 
-import Navbar from "./componentes/Navbar";
-
+import Home from "./paginas/Home";
 import Login from "./paginas/login";
 import CrearJugador from "./paginas/crearjugador";
-import PlayersList from "./paginas/playerslist";
+import EditarJugador from "./paginas/editarjugador";
+import InfoJugador from "./paginas/infojugador";
 
 function App() {
   return (
-    
-   
-    <BrowserRouter>
+    <Routes>
 
-      <Navbar />
+      <Route path="/" element={<Home />} />
 
-      <Routes>
-        <Route path="/login" element={<Login />} />
-        <Route path="/crear" element={<CrearJugador />} />
-        <Route path="/" element={<PlayersList />} />
-      </Routes>
+      <Route path="/login" element={<Login />} />
 
-    </BrowserRouter>
-    
+      <Route path="/crear" element={<CrearJugador />} />
+
+      <Route path="/editar/:id" element={<EditarJugador />} />
+
+      <Route path="/player/:id" element={<InfoJugador />} />
+
+    </Routes>
   );
 }
 
