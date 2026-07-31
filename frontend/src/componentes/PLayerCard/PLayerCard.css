@@ -43,3 +43,8 @@
     margin:5px 0;
     color:#555;
 }
+
+.player-card-link{
+    text-decoration: none;
+    color: inherit;
+} 

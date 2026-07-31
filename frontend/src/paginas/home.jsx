@@ -1,4 +1,4 @@
-import Navbar from "../components/Navbar/Navbar";
+import Navbar from "../componentes/navbar";
 import PlayersList from "./playerslist";
 
 function Home() {

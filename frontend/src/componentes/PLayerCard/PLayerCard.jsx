@@ -1,34 +1,28 @@
+import { Link } from "react-router-dom";
 import "./PlayerCard.css";
 
 function PlayerCard({ player }) {
   return (
-    <div className="player-card">
+    <Link to={`/player/${player.id}`} className="player-card-link">
+      <div className="player-card">
 
-      <img
-        className="player-image"
-        src={`http://localhost:3000/players-image?url=${encodeURIComponent(
-          player.player_face_url
-        )}`}
-        alt={player.long_name}
-      />
-
-      <div className="player-info">
+        <img
+          src={`http://localhost:3000/players-image?url=${encodeURIComponent(
+            player.player_face_url
+          )}`}
+          alt={player.long_name}
+        />
 
         <h3>{player.long_name}</h3>
 
-        <span className="overall">
-          OVR {player.overall}
-        </span>
-
-        <p>{player.player_positions}</p>
+        <p><strong>Overall:</strong> {player.overall}</p>
 
         <p>{player.club_name}</p>
 
-        <p>{player.nationality_name}</p>
+        <p>{player.player_positions}</p>
 
       </div>
-
-    </div>
+    </Link>
   );
 }
 

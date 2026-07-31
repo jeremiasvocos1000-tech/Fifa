@@ -1,7 +1,7 @@
-import "./CSS/playerlist.css";
+import "./CSS/playerslist.css";
 import { useEffect, useState } from "react";
 import api from "../service/api";
-import PlayerCard from "../components/PlayerCard/PlayerCard";
+import PlayerCard from "../componentes/PLayerCard/PLayerCard";
 
 function PlayersList() {
 

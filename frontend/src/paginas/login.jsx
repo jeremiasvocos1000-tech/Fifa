@@ -1,30 +1,36 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import api from "../service/api";
 
 function Login() {
-
   const navigate = useNavigate();
 
   const [user, setUser] = useState("");
   const [password, setPassword] = useState("");
   const [logResult, setLogResult] = useState(null);
 
-  const trueUser = "Admin";
-  const truePassword = "1234";
-
- const enviar = (e) => {
+  const enviar = async (e) => {
     e.preventDefault();
 
-    if (user === trueUser && password === truePassword) {
-      setLogResult(true);
-      localStorage.setItem("logueado", "true"); 
+    try {
+      const response = await api.post("/auth/login", {
+        username: user,
+        password: password,
+      });
+
+      localStorage.setItem("token", response.data.access_token);
+      localStorage.setItem("logueado", "true");
+
       window.dispatchEvent(new Event("storage"));
+
+      setLogResult(true);
 
       setTimeout(() => {
         navigate("/");
       }, 1000);
 
-    } else {
+    } catch (error) {
+      console.error(error);
       setLogResult(false);
     }
   };
